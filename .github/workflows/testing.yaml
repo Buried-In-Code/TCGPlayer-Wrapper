@@ -23,7 +23,8 @@ jobs:
           - macos-latest
           - windows-latest
     env:
-      CARD_TRADER_ACCESS_TOKEN: Testing
+      TCG_PLAYER_CLIENT_ID: Testing
+      TCG_PLAYER_CLIENT_SECRET: Testing
     runs-on: ${{ matrix.os }}
     steps:
       #----------------------------------------------
