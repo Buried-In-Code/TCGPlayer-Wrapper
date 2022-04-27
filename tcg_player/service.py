@@ -194,12 +194,12 @@ class TCGPlayer:
         return None
 
     def list_group_products(self, category_id: int, group_id: int) -> List[Product]:
-        results = self._get_request(
+        results = self._retrieve_all_results(
             endpoint="/catalog/products",
             params={"categoryId": category_id, "groupId": group_id, "productTypes": "Cards"},
         )
         if results:
-            return [Product.from_dict(x) for x in results["results"]]
+            return [Product.from_dict(x) for x in results]
         return []
 
     def product(self, product_id: int) -> Optional[Product]:
@@ -214,11 +214,11 @@ class TCGPlayer:
             return [Price.from_dict(x) for x in results["results"]]
         return []
 
-    def product_prices(self, product_id: int) -> Optional[Price]:
-        response = self._get_request(endpoint=f"/pricing/product/{product_id}")
-        if response:
-            return Price.from_dict(response["results"][0])
-        return None
+    def product_prices(self, product_id: int) -> List[Price]:
+        results = self._get_request(endpoint=f"/pricing/product/{product_id}")
+        if results:
+            return [Price.from_dict(x) for x in results["results"]]
+        return []
 
     def _retrieve_all_results(self, endpoint: str, params: Dict[str, str] = None) -> List[Any]:
         if params is None:
@@ -227,6 +227,8 @@ class TCGPlayer:
         params["offset"] = 0
 
         response = self._get_request(endpoint, params=params)
+        if not response:
+            return []
         results = response["results"]
         while response["totalItems"] > len(results):
             params["offset"] = len(results)

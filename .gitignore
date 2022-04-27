@@ -16,3 +16,4 @@ dist/
 
 # =====Project=====
 settings.yaml
+/tester.py
