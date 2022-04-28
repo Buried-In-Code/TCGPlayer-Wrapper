@@ -15,11 +15,11 @@ def test_list_group_prices(session: TCGPlayer):
 
 
 def test_product_prices(session: TCGPlayer):
-    result = session.product_prices(product_id=175065)
-    assert result.product_id == 175065
-    assert result.low_price == 99.99
-    assert result.mid_price == 107.49
-    assert result.high_price == 114.99
-    assert result.market_price == 87.69
-    assert result.direct_low_price is None
-    assert result.sub_type_name == "Normal"
+    results = session.product_prices(product_id=175065)
+    assert results[0].product_id == 175065
+    assert results[0].low_price == 99.99
+    assert results[0].mid_price == 107.49
+    assert results[0].high_price == 114.99
+    assert results[0].market_price == 87.69
+    assert results[0].direct_low_price is None
+    assert results[0].sub_type_name == "Normal"

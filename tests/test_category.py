@@ -9,7 +9,7 @@ def test_list_categories(session: TCGPlayer):
     assert len(result) == 1
     assert result[0].category_id == 1
     assert result[0].name == "Magic"
-    assert result[0].modified_on == datetime(2022, 4, 18, 13, 4, 52)
+    assert result[0].modified_on == datetime(2022, 4, 27, 20, 37, 39)
     assert result[0].display_name == "Magic: The Gathering"
     assert result[0].seo_category_name == "Magic the Gathering TCG (MTG)"
     assert result[0].sealed_label == "Sealed Products"
@@ -24,7 +24,7 @@ def test_category(session: TCGPlayer):
     result = session.category(category_id=62)
     assert result.category_id == 62
     assert result.name == "Flesh & Blood TCG"
-    assert result.modified_on == datetime(2022, 4, 14, 21, 45, 49)
+    assert result.modified_on == datetime(2022, 4, 27, 13, 42, 26)
     assert result.display_name == "Flesh and Blood TCG"
     assert result.seo_category_name == "Flesh and Blood TCG"
     assert result.sealed_label == "Sealed Products"

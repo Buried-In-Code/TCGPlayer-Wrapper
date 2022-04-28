@@ -21,4 +21,6 @@ def session(client_id, client_secret) -> TCGPlayer:
     session = TCGPlayer(
         client_id, client_secret, cache=SQLiteCache("tests/cache.sqlite", expiry=None)
     )
+    if not session.authorization_check():
+        session.access_token = session.generate_token()
     return session
