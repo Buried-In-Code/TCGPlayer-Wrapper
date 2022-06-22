@@ -1,6 +1,4 @@
-from datetime import datetime
-
-from tcg_player.service import TCGPlayer
+from tcgplayer.service import TCGPlayer
 
 
 def test_list_group_products(session: TCGPlayer):
@@ -17,7 +15,6 @@ def test_list_group_products(session: TCGPlayer):
         result[0].url
         == "https://www.tcgplayer.com/product/86/magic-portal-second-age-abyssal-nightstalker"
     )
-    assert result[0].modified_on == datetime(2022, 3, 9, 14, 45, 52)
 
 
 def test_product(session: TCGPlayer):
@@ -32,4 +29,3 @@ def test_product(session: TCGPlayer):
         result.url
         == "https://www.tcgplayer.com/product/86/magic-portal-second-age-abyssal-nightstalker"
     )
-    assert result.modified_on == datetime(2022, 3, 9, 14, 45, 52)

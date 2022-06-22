@@ -1,4 +1,4 @@
-from tcg_player.service import TCGPlayer
+from tcgplayer.service import TCGPlayer
 
 
 def test_list_category_conditions(session: TCGPlayer):

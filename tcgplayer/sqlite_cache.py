@@ -3,7 +3,7 @@ import sqlite3
 from datetime import date, timedelta
 from typing import Any, Dict, Optional
 
-from tcg_player import get_cache_root
+from tcgplayer import get_cache_root
 
 
 class SQLiteCache:

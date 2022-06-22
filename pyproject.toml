@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "TCGPlayer-Wrapper"
-version = "0.1.2"
+version = "0.2.0"
 description = ""
 license = "GPL-3.0-or-later"
 authors = ["Buried-In-Code <BuriedInCode@tuta.io>"]
@@ -8,7 +8,7 @@ maintainers = ["Buried-In-Code <BuriedInCode@tuta.io>"]
 readme = "README.md"
 repository = "https://github.com/Buried-In-Code/TCGPlayer-Wrapper"
 packages = [
-    { include = "tcg_player" }
+    { include = "tcgplayer" }
 ]
 include = [
     { path = "tests", format = "sdist" }
@@ -31,12 +31,12 @@ classifiers = [
 
 [tool.poetry.dependencies]
 python = "^3.8"
-dataclasses-json = "^0.5.7"
-requests = "^2.27.1"
+requests = "^2.28.0"
 ratelimit = "^2.2.1"
+pydantic = "^1.9.1"
 
 [tool.poetry.dev-dependencies]
-pre-commit = "^2.18.1"
+pre-commit = "^2.19.0"
 pytest = "^7.1.2"
 pytest-cov = "^3.0.0"
 tox = "^3.25.0"
@@ -59,7 +59,7 @@ known_first_party = []
 known_third_party = []
 
 [tool.coverage.run]
-source = ["tcg_player"]
+source = ["tcgplayer"]
 
 [tool.coverage.report]
 show_missing = true
