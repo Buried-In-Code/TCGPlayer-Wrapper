@@ -4,6 +4,7 @@ import pytest
 
 from tcgplayer.service import TCGPlayer
 from tcgplayer.sqlite_cache import SQLiteCache
+from tcgplayer.exceptions import ServiceError
 
 
 @pytest.fixture(scope="session")
@@ -26,6 +27,9 @@ def session(client_id, client_secret, access_token) -> TCGPlayer:
     session = TCGPlayer(
         client_id, client_secret, access_token, cache=SQLiteCache("tests/cache.sqlite", expiry=None)
     )
-    if not session.authorization_check():
-        session.generate_token()
+    try:
+        if not session.authorization_check():
+            session.generate_token()
+    except ServiceError:
+        pass
     return session
