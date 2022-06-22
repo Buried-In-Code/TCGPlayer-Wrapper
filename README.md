@@ -34,8 +34,8 @@ $ poetry add TCGPlayer-Wrapper
 ## Example Usage
 
 ```python
-from tcg_player.service import TCGPlayer
-from tcg_player.sqlite_cache import SQLiteCache
+from tcgplayer.service import TCGPlayer
+from tcgplayer.sqlite_cache import SQLiteCache
 
 session = TCGPlayer(client_id="Client ID", client_secret="Client Secret", cache=SQLiteCache())
 
