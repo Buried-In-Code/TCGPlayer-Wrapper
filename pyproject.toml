@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "TCGPlayer-Wrapper"
-version = "0.3.0"
+version = "0.2.0"
 description = ""
 license = "GPL-3.0-or-later"
 authors = ["Buried-In-Code <BuriedInCode@tuta.io>"]
